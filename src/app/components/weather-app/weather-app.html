@@ -1,0 +1,56 @@
+<div class="background">
+  <div class="overlay">
+    <div class="container">
+      <h2 class="title">Weather Report</h2>
+      <input type="text" class="search-box" [formControl]="cityControl" placeholder="Enter city name" />
+
+      <div *ngIf="weatherData">
+        <h3>{{ weatherData.name }} ({{ weatherData.sys.country }})</h3>
+      </div>
+
+      <div *ngIf="errorMessage" style="color: red">
+        ❌ {{ errorMessage }}
+      </div>
+
+      <div *ngIf="weatherData">
+        <div class="card-container">
+          <div class="card">
+              <div class="card-title">Temperature</div>
+              <div class="card-body">
+                <div class="card-icon">🌡️</div>
+                <div class="card-value">{{ weatherData.main.temp }} °C</div>
+            </div>
+          </div>
+          <div class="card">
+              <div class="card-title">Humidity</div>
+              <div class="card-body">
+                <div class="card-icon">💧</div>
+                <div class="card-value">{{ weatherData.main.humidity }} %</div>
+            </div> 
+          </div>
+          <div class="card">
+              <div class="card-title">Feels like</div>
+              <div class="card-body">
+                <div class="card-icon">🌡️</div>
+                <div class="card-value">{{ weatherData.main.feels_like }} °C</div>
+            </div>
+          </div>
+          <div class="card">
+              <div class="card-title">Wind Speed</div>
+              <div class="card-body">
+                <div class="card-icon">💨</div>
+                <div class="card-value">{{ weatherData.wind.speed }} m/s</div>
+            </div>
+          </div>
+      
+          <!-- <div class="card">
+            <p>💨 Wind Speed: {{ weatherData.wind.speed }} m/s</p>
+          </div> -->
+          
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+/* Full screen background */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    background-image: url('https://source.unsplash.com/1600x900/?nature,water');
+    /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* dark overlay for readability */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    width: 80%;
+    max-width: 800px;
+}
+
+.search-box {
+    padding: 15px 20px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    margin-bottom: 40px;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 200px;
+    font-size: 16px;
+}

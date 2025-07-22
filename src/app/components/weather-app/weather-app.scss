@@ -1,0 +1,107 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+.background {
+  background-image: url('./weathermov.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;  /* Fix the background to screen */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  width: 80%;
+  max-width: 800px;
+}
+.search-box {
+  padding: 18px 24px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 20px;
+  border-radius: 30px; /* Increased roundness */
+  border: none;
+  outline: none;
+  margin-bottom: 40px;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+// .card {
+//   background-color: white;
+//   color: black;
+//   padding: 20px;
+//   border-radius: 12px;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+//   width: 200px;
+//   font-size: 16px;
+// }
+.title {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+.card {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  width: 150px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 18px;
+  width: 100%;
+  text-align: left;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-icon {
+  font-size: 24px;
+}
+
+.card-value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
