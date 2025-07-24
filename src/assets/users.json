@@ -20,17 +20,47 @@
     "role": "manager",
     "isActive": false
   },
+
   {
     "userId": "U002",
-    "email": "jane.doe@example.com",
-    "password": "jane@2024",
+    "email": "gaurav.sinha@gmail.com",
+    "password": "12345",
+    "role": "user",
+    "isActive": true
+  },
+
+  {
+    "userId": "U002",
+    "email": "sourav.saha@gmail.com",
+    "password": "12345",
     "role": "user",
     "isActive": true
   },
   {
-    "userId": "U003",
-    "email": "john.smith@example.com",
-    "password": "john1234",
+    "userId": "U004",
+    "email": "anubhab.ray@gmail.com",
+    "password": "12345",
+    "role": "user",
+    "isActive": true
+  },
+  {
+    "userId": "U005",
+    "email": "rishikeash.rahi@gmail.com",
+    "password": "12345",
+    "role": "user",
+    "isActive": true
+  },
+   {
+    "userId": "U006",
+    "email": "pratim.sahoo@gmail.com",
+    "password": "12345",
+    "role": "user",
+    "isActive": true
+  },
+  {
+    "userId": "U007",
+    "email": "sambit.mishra@gmail.com",
+    "password": "12345",
     "role": "user",
     "isActive": true
   }
