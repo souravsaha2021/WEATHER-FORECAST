@@ -51,8 +51,7 @@
   },
   {
     "userId": "U005",
-    "name": "Rishikesh Rahi",
-    "email": "rishikesh.rahi@gmail.com",
+    "email": "rishikeash.rahi@gmail.com",
     "password": "12345",
     "role": "user",
     "isActive": true
