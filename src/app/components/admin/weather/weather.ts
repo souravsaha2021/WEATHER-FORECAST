@@ -8,4 +8,20 @@ import { Component } from "@angular/core";
   templateUrl: "./weather.html",
   styleUrl: "./weather.scss",
 })
-export class Weather {}
+export class Weather {
+
+  useCelsius = true;
+
+  toggleUnit() {
+    this.useCelsius = !this.useCelsius;
+    console.log("changed to : ", this.useCelsius);
+
+    // now save in local storage/json
+
+    const data = {
+        isCelcius: this.useCelsius ? 'true' : 'false',
+      };
+      localStorage.setItem('celiusData', JSON.stringify(data));
+  }
+
+}

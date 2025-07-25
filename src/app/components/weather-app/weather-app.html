@@ -1,7 +1,13 @@
 <div class="background">
   <div class="overlay">
     <div class="container">
-      <h2 class="title">Weather Report</h2>
+      <h2 class="title">
+        <!-- Replace text title with logo image -->
+        <div class="app-logo">
+          <img src="assets/logo.png" alt="App Logo" />
+        </div>
+
+      </h2>
       <input type="text" class="search-box" [formControl]="cityControl" placeholder="Enter city name" />
 
       <!-- <div *ngIf="weatherData">
@@ -23,28 +29,58 @@
             <div class="weather-icon">
               <img src="https://openweathermap.org/img/wn/{{ weatherData.weather[0].icon}}.png" alt="rain" />
             </div>
-            <div class="temp-today">{{ weatherData.main.feels_like }} °C</div>
+            <div *ngIf="isF">
+              <div class="temp-today">{{ weatherData.main.feels_like * 1.8 + 32 | number:'1.1-1'}} °F</div>
+            </div>
+            <div *ngIf=!isF>
+              <div class="temp-today">{{ weatherData.main.feels_like | number:'1.1-1'}} °C</div>
+            </div>
             <div class="description">{{ weatherData.weather[0].description }}</div>
             <div class="location"><h3>{{ weatherData.name }} ({{ weatherData.sys.country }})</h3></div>
 
             <div class="extra-info">
-    <div class="info-row">
-      <span>Feels Like:</span>
-      <span>{{ weatherData.main.feels_like }} °C</span>
-    </div>
-    <div class="info-row">
-      <span>Humidity:</span>
-      <span>{{ weatherData.main.humidity }} %</span>
-    </div>
-    <div class="info-row">
-      <span>Max Temp:</span>
-      <span>{{ weatherData.main.temp_max }} °C</span>
-    </div>
-    <div class="info-row">
-      <span>Min Temp:</span>
-      <span>{{ weatherData.main.temp_min }} °C</span>
-    </div>
-  </div>
+            <div *ngIf="isF">
+              <div class="info-row">
+              <span>Max Temp:</span>
+              <span>{{ (weatherData.main.feels_like * 1.8 + 32 | number:'1.1-1') }} °F</span>
+              </div>
+            </div>
+            <div *ngIf=!isF>
+              <div class="info-row">
+              <span>Max Temp:</span>
+              <span>{{ (weatherData.main.feels_like | number:'1.1-1') }} °C</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <span>Humidity:</span>
+              <span>{{ weatherData.main.humidity }} %</span>
+            </div>
+            <div *ngIf="isF">
+              <div class="info-row">
+              <span>Max Temp:</span>
+              <span>{{ (weatherData.main.temp_max * 1.8 + 32 | number:'1.1-1') }} °F</span>
+              </div>
+            </div>
+            <div *ngIf=!isF>
+              <div class="info-row">
+              <span>Max Temp:</span>
+              <span>{{ (weatherData.main.temp_max | number:'1.1-1') }} °C</span>
+              </div>
+            </div>
+            
+            <div *ngIf="isF">
+              <div class="info-row">
+              <span>Max Temp:</span>
+              <span>{{ (weatherData.main.temp_min * 1.8 + 32 | number:'1.1-1') }} °F</span>
+              </div>
+            </div>
+            <div *ngIf=!isF>
+              <div class="info-row">
+              <span>Max Temp:</span>
+              <span>{{ (weatherData.main.temp_min | number:'1.1-1') }} °C</span>
+              </div>
+            </div>
+          </div>
           </div>
 
           <!-- RIGHT SIDE: 8-Day Forecast -->
@@ -56,7 +92,13 @@
               <div class="icon">
                 <img src="https://openweathermap.org/img/wn/{{day.icon}}" alt="" />
               </div>
-              <div class="temp">{{ day.temp }}</div>
+              
+             <div *ngIf="isF">
+              <div class="temp">{{ (day.tempMax * 1.8 + 32 | number:'1.1-1') }} / {{ (day.tempMin * 1.8 + 32 | number:'1.1-1') }} °F</div>
+            </div>
+            <div *ngIf=!isF>
+              <div class="temp">{{ (day.tempMax | number:'1.1-1') }} / {{ (day.tempMin | number:'1.1-1') }} °C</div>
+            </div>
               <div class="description">{{ day.type }}</div>
               <!-- <div class="dropdown">▼</div> -->
             </div>

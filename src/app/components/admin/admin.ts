@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { RouterModule, RouterOutlet, Router } from "@angular/router";
 
 @Component({
   selector: "app-admin",
-  imports: [RouterOutlet],
+  imports: [RouterModule, RouterOutlet],
   templateUrl: "./admin.html",
   styleUrl: "./admin.scss",
   //  template: `
@@ -12,5 +12,9 @@ import { RouterOutlet } from "@angular/router";
   // `,
 })
 export class Admin {
-  logout() {}
+  constructor(private router: Router) { }
+  logout() {
+    console.log("logout clicked");
+    this.router.navigate(['/']);
+  }
 }

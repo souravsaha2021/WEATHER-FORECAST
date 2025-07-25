@@ -1,1 +1,16 @@
-<p>weather works!</p>
+
+
+<!-- TOGGLE SWITCH WITH LABELS ON BOTH SIDES -->
+ <div class = "background">
+    <div class="toggle-switch">
+    <span class="unit-label">Fahrenheit (°F)</span>
+
+    <label class="switch">
+        <input type="checkbox" [checked]="useCelsius" (change)="toggleUnit()" />
+        <span class="slider"></span>
+    </label>
+
+    <span class="unit-label">Celsius (°C)</span>
+    </div>
+ </div>
+
