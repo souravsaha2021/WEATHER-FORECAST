@@ -14,6 +14,7 @@ import { Router, RouterOutlet } from "@angular/router";
 export class Auth {
   email = "";
   password = "";
+  errorMessage = ""
 
   users: any[] = [];
   loginError = false;
@@ -44,9 +45,11 @@ export class Auth {
 
     if (!foundUser) {
       console.log("Invalid email or password.");
+      this.errorMessage = "Invalid email or password."
       this.loginError = true;
     } else if (!foundUser.isActive) {
       console.log("User is inactive.");
+      this.errorMessage = "User is inactive."
       this.loginError = true;
     } else {
       console.log("Login successful!");

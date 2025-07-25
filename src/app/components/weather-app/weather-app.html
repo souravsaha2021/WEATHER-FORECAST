@@ -4,53 +4,68 @@
       <h2 class="title">Weather Report</h2>
       <input type="text" class="search-box" [formControl]="cityControl" placeholder="Enter city name" />
 
-      <div *ngIf="weatherData">
+      <!-- <div *ngIf="weatherData">
         <h3>{{ weatherData.name }} ({{ weatherData.sys.country }})</h3>
-      </div>
+      </div> -->
 
       <div *ngIf="errorMessage" style="color: red">
         ❌ {{ errorMessage }}
       </div>
 
       <div *ngIf="weatherData">
-        <div class="card-container">
-          <div class="card">
-              <div class="card-title">Temperature</div>
-              <div class="card-body">
-                <div class="card-icon">🌡️</div>
-                <div class="card-value">{{ weatherData.main.temp }} °C</div>
-            </div>
-          </div>
-          <div class="card">
-              <div class="card-title">Humidity</div>
-              <div class="card-body">
-                <div class="card-icon">💧</div>
-                <div class="card-value">{{ weatherData.main.humidity }} %</div>
-            </div> 
-          </div>
-          <div class="card">
-              <div class="card-title">Feels like</div>
-              <div class="card-body">
-                <div class="card-icon">🌡️</div>
-                <div class="card-value">{{ weatherData.main.feels_like }} °C</div>
-            </div>
-          </div>
-          <div class="card">
-              <div class="card-title">Wind Speed</div>
-              <div class="card-body">
-                <div class="card-icon">💨</div>
-                <div class="card-value">{{ weatherData.wind.speed }} m/s</div>
-            </div>
-          </div>
-      
-          <!-- <div class="card">
-            <p>💨 Wind Speed: {{ weatherData.wind.speed }} m/s</p>
-          </div> -->
-          
+        
 
+        <!-- </div> -->
+        <div class="forecast-wrapper">
+          <!-- LEFT SIDE: Additional Info Card -->
+          <div class="info-card">
+            <h3>Today's Weather</h3>
+            <div class="weather-icon">
+              <img src="https://openweathermap.org/img/wn/{{ weatherData.weather[0].icon}}.png" alt="rain" />
+            </div>
+            <div class="temp-today">{{ weatherData.main.feels_like }} °C</div>
+            <div class="description">{{ weatherData.weather[0].description }}</div>
+            <div class="location"><h3>{{ weatherData.name }} ({{ weatherData.sys.country }})</h3></div>
+
+            <div class="extra-info">
+    <div class="info-row">
+      <span>Feels Like:</span>
+      <span>{{ weatherData.main.feels_like }} °C</span>
+    </div>
+    <div class="info-row">
+      <span>Humidity:</span>
+      <span>{{ weatherData.main.humidity }} %</span>
+    </div>
+    <div class="info-row">
+      <span>Max Temp:</span>
+      <span>{{ weatherData.main.temp_max }} °C</span>
+    </div>
+    <div class="info-row">
+      <span>Min Temp:</span>
+      <span>{{ weatherData.main.temp_min }} °C</span>
+    </div>
+  </div>
+          </div>
+
+          <!-- RIGHT SIDE: 8-Day Forecast -->
+          <div class="forecast-container">
+            <h2>5-day forecast</h2>
+
+            <div class="forecast-row" *ngFor="let day of forecastData">
+              <div class="day">{{ day.date }}</div>
+              <div class="icon">
+                <img src="https://openweathermap.org/img/wn/{{day.icon}}" alt="" />
+              </div>
+              <div class="temp">{{ day.temp }}</div>
+              <div class="description">{{ day.type }}</div>
+              <!-- <div class="dropdown">▼</div> -->
+            </div>
+          </div>
         </div>
+
       </div>
 
     </div>
   </div>
+
 </div>
