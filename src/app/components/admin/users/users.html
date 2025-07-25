@@ -1,0 +1,128 @@
+<!-- <h2 class="user-title">User List</h2>
+
+<div class="user-table-container">
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <span [ngClass]="user.isActive ? 'status-active' : 'status-inactive'">
+            {{ user.isActive ? 'Active' : 'Inactive' }}
+          </span>
+        </td>
+        <td>
+          <button class="edit-btn" (click)="editUser(user)">Edit</button>
+          <button class="delete-btn" (click)="deleteUser(user.userId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<div class="user-container">
+  <!-- Add User Form (shown conditionally) -->
+  <div *ngIf="showAddUserForm" class="form-container">
+    <h3>Add New User</h3>
+    <form (ngSubmit)="addUser()" #userForm="ngForm">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="newUser.name" name="name" required />
+
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="newUser.email" name="email" required />
+
+      <label>Role:</label>
+      <select [(ngModel)]="newUser.isActive" name="isActive" required>
+        <option [value]="true">user</option>
+        <option [value]="false">admin</option>
+      </select>
+      <label>Status:</label>
+      <select [(ngModel)]="newUser.isActive" name="isActive" required>
+        <option [value]="true">Active</option>
+        <option [value]="false">Inactive</option>
+      </select>
+
+      <div class="form-buttons">
+        <button type="submit">Add</button>
+        <button type="button" (click)="cancelAddUser()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  
+  <!-- Title Bar with Button -->
+
+<div class="user-title-bar">
+  <h2 class="user-title">User List</h2>
+  <button class="add-user-btn" (click)="goToAddUser()">+ Add User</button>
+</div>
+
+<div class="user-container">
+     <div class="user-table-wrapper">
+        <table class="user-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <ng-container *ngIf="editingUser?.userId === user.userId; else normalRow">
+        <td>{{ user.userId }}</td>
+        <td><input [(ngModel)]="editingUser.name" /></td>
+        <td><input [(ngModel)]="editingUser.email" /></td>
+        <td><input [(ngModel)]="editingUser.role" /></td>
+       <td>
+  <select
+    [(ngModel)]="editingUser.isActive"
+    [ngClass]="{
+      'status-active': editingUser.isActive === true,
+      'status-inactive': editingUser.isActive === false
+    }"
+  >
+    <option [value]="true">Active</option>
+    <option [value]="false">Inactive</option>
+  </select>
+</td>
+        <td>
+          <button (click)="saveUser()">Save</button>
+          <button (click)="cancelEdit()">Cancel</button>
+        </td>
+      </ng-container>
+
+      <ng-template #normalRow>
+        <td>{{ user.userId }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td [ngClass]="user.isActive ? 'status-active' : 'status-inactive'">
+            {{ user.isActive ? 'Active' : 'Inactive' }}</td>
+        <td>
+          <button (click)="editUser(user)">Edit</button>
+          <button (click)="deleteUser(user.userId)">Delete</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+     </div>
+  
+

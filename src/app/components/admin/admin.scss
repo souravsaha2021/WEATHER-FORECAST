@@ -1,0 +1,34 @@
+.navbar {
+  background-color: #151617bc;
+  padding: 10px 20px;
+}
+
+.nav {
+  display: flex;               /* Make it horizontal */
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-right: 15px;
+}
+
+.logout-item {
+  margin-left: auto;           /* Push this item to the right */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #00bfff;  /* Light blue on hover, or any color you like */
+}

@@ -19,5 +19,22 @@ export const routes: Routes = [
     path: "admin",
     loadComponent: () =>
       import("./components/admin/admin").then((m) => m.Admin),
+    children: [
+      {
+        path: "users",
+        loadComponent: () =>
+          import("./components/admin/users/users").then((m) => m.Users),
+      },
+      {
+        path: "weather",
+        loadComponent: () =>
+          import("./components/admin/weather/weather").then((m) => m.Weather),
+      },
+      {
+        path: "",
+        redirectTo: "users",
+        pathMatch: "full",
+      },
+    ],
   },
 ];

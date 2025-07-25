@@ -6,10 +6,11 @@ import { Auth } from "./app/components/auth/auth";
 import { provideRouter } from "@angular/router";
 import { routes } from "./app/app.routes";
 import { AppComponent } from "./app/component/component";
+import { provideHttpClient } from "@angular/common/http";
 
 // bootstrapApplication(WeatherSearchComponent)
 //   .catch(err => console.error(err));
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
+  providers: [provideRouter(routes), provideHttpClient()],
 });

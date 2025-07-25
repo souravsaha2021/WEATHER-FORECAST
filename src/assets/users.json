@@ -1,6 +1,7 @@
 [
   {
     "userId": "U001",
+    "name": "User",
     "email": "user1@example.com",
     "password": "pass123",
     "role": "user",
@@ -8,6 +9,7 @@
   },
   {
     "userId": "A001",
+    "name": "Admin",
     "email": "admin@example.com",
     "password": "admin@123",
     "role": "admin",
@@ -15,6 +17,7 @@
   },
   {
     "userId": "M001",
+    "name": "Manager",
     "email": "manager@example.com",
     "password": "manager@321",
     "role": "manager",
@@ -23,6 +26,7 @@
 
   {
     "userId": "U002",
+    "name": "Gaurav Sinha",
     "email": "gaurav.sinha@gmail.com",
     "password": "12345",
     "role": "user",
@@ -31,6 +35,7 @@
 
   {
     "userId": "U002",
+    "name": "Sourav Saha",
     "email": "sourav.saha@gmail.com",
     "password": "12345",
     "role": "user",
@@ -38,6 +43,7 @@
   },
   {
     "userId": "U004",
+    "name": "Anubhab Ray",
     "email": "anubhab.ray@gmail.com",
     "password": "12345",
     "role": "user",
@@ -45,6 +51,7 @@
   },
   {
     "userId": "U005",
+    "name": "Rishikesh Rahi",
     "email": "rishikesh.rahi@gmail.com",
     "password": "12345",
     "role": "user",
@@ -52,6 +59,7 @@
   },
    {
     "userId": "U006",
+    "name": "Pratim Sahoo",
     "email": "pratim.sahoo@gmail.com",
     "password": "12345",
     "role": "user",
@@ -59,6 +67,7 @@
   },
   {
     "userId": "U007",
+    "name": "Sambit Mishra",
     "email": "sambit.mishra@gmail.com",
     "password": "12345",
     "role": "user",
